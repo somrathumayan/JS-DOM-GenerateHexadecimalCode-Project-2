@@ -14,23 +14,25 @@ window.onload = () => {
 function main(){
     const root = document.getElementById("root"); //root ke dhore nilam
     const btn = document.getElementById("change-btn"); //button ke dhore nilam
+    const output = document.getElementById("output"); //output ke dhore nilam
 
     btn.addEventListener("click", function(){
-        const bgColor = generateRGBColor();
+        const bgColor = generateHEXColor();
         root.style.backgroundColor = bgColor;
+        output.value = bgColor;
     });
 }
 
 
 
 // step 2 - random color generator function 
-function generateRGBColor(){
+function generateHEXColor(){
     // rgb(0,0,0) to rgb(255,255,255) 
     const red = Math.floor(Math.random()*255);
     const green = Math.floor(Math.random()*255);
     const blue = Math.floor(Math.random()*255);
 
-    return `rgb(${red}, ${green}, ${blue})`;
+    return `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`;
 }
 
 // step 3 - collect all necessary references
